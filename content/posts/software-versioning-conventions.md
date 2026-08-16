@@ -4,6 +4,7 @@ excerpt: "A look at the major software versioning schemes — Semantic Versionin
 date: "2024-06-25"
 dateLabel: "June 25, 2024"
 type: post
+featured: true
 category: "Versioning"
 image: "/posts/software-versioning-conventions.png"
 imageAlt: "Software Versioning Conventions"

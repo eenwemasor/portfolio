@@ -4,6 +4,7 @@ excerpt: "Cross-cutting concerns to plan for when scaling a Laravel application 
 date: "2024-06-25"
 dateLabel: "June 25, 2024"
 type: post
+featured: true
 category: "Laravel"
 image: "/posts/laravel-session-persistence-caching.png"
 imageAlt: "Laravel: Session Persistence, Caching, File Upload Management and Logging on a Load Balancer"

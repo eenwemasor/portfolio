@@ -14,6 +14,7 @@ export interface PostFrontmatter {
   authorUrl: string
   authorAvatarUrl?: string
   tags?: string[]
+  featured?: boolean
 }
 
 export interface Post extends PostFrontmatter {
@@ -50,6 +51,10 @@ export function getAllPosts(): Post[] {
 
 export function getPostBySlug(slug: string): Post | undefined {
   return getAllPosts().find((post) => post.slug === slug)
+}
+
+export function getFeaturedPosts(): Post[] {
+  return getAllPosts().filter((post) => post.featured === true)
 }
 
 export interface CategoryCount {

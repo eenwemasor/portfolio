@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, useTemplateRef } from 'vue'
 import gsap from 'gsap'
-import { getAllPosts } from '../composables/usePosts'
+import { getFeaturedPosts } from '../composables/usePosts'
 import { getAllProjects } from '../composables/useProjects'
 import type { IndexEntry } from '../components/EntryIndexList.vue'
 import IconGitHub from '../components/icons/IconGitHub.vue'
@@ -10,7 +10,7 @@ import IconX from '../components/icons/IconX.vue'
 import IconMail from '../components/icons/IconMail.vue'
 import IconGlobe from '../components/icons/IconGlobe.vue'
 
-const { data: posts } = await useAsyncData('posts', () => Promise.resolve(getAllPosts()))
+const { data: posts } = await useAsyncData('featured-posts', () => Promise.resolve(getFeaturedPosts()))
 const { data: projects } = await useAsyncData('home-projects', () => Promise.resolve(getAllProjects()))
 
 const HOME_TEASER_LIMIT = 6

@@ -4,6 +4,7 @@ excerpt: "An introduction to the Conventional Commits specification — its stru
 date: "2024-06-24"
 dateLabel: "June 24, 2024"
 type: post
+featured: true
 category: "CI/CD"
 image: ""
 imageAlt: "Conventional Commit: The Way to Writing Good Commit Messages"

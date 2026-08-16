@@ -4,6 +4,7 @@ excerpt: "A hands-on walkthrough of deploying a Laravel application and connecti
 date: "2024-06-25"
 dateLabel: "June 25, 2024"
 type: post
+featured: true
 category: "Kubernetes"
 image: ""
 imageAlt: "Harnessing Kubernetes for Hosting MySQL and Laravel Applications"
