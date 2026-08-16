@@ -1,0 +1,51 @@
+# Nuxt build artifacts (rebuilt in Docker)
+.nuxt/
+.output/
+.data/
+dist/
+
+# Node modules (reinstalled in Docker)
+node_modules/
+
+# Storybook (not part of the shipped site)
+.storybook/
+storybook-static/
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Dev tooling
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Docs
+README.md
+CLAUDE.md
+
+# Reference-only source mirrors + raw content exports (not shipped)
+github-next-post/
+github-next-project/
+mattrothenberg/
+projects/
+content/content-1.md
+content/content-2.md
+content/content-3.md
+content/content-4.md
+
+# Deploy config (not needed inside the image)
+deployments/
+.github/

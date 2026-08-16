@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  portfolio:
+    image: ${IMAGE_NAME}:${TAG}
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+
+        # ── HTTP router (redirect only) ──
+        - "traefik.http.routers.portfolio-http.rule=Host(`enwemasorbarnabas.com`) || Host(`www.enwemasorbarnabas.com`)"
+        - "traefik.http.routers.portfolio-http.entrypoints=web"
+        - "traefik.http.routers.portfolio-http.middlewares=https-redirect@file"
+        - "traefik.http.routers.portfolio-http.service=portfolio"
+
+        # ── HTTPS router ──
+        - "traefik.http.routers.portfolio.rule=Host(`enwemasorbarnabas.com`) || Host(`www.enwemasorbarnabas.com`)"
+        - "traefik.http.routers.portfolio.entrypoints=websecure"
+        - "traefik.http.routers.portfolio.tls=true"
+        - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+        - "traefik.http.services.portfolio.loadbalancer.server.port=3000"
+      restart_policy:
+        condition: any
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      update_config:
+        parallelism: 1
+        delay: 10s
+        failure_action: rollback
+
+networks:
+  traefik-public:
+    external: true
