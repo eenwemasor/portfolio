@@ -43,14 +43,14 @@ function isActive(href: string) {
 
 const desktopLinkClass = (active: boolean) => [
   'relative z-10 rounded-full text-sm font-medium transition-colors duration-200 items-center md:flex gap-3 px-4 py-3 max-md:pr-0 md:gap-0 md:p-2.5 md:justify-center hidden',
-  active ? 'text-gray-900' : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
+  active ? 'text-white' : 'text-gray-400 hover:text-white hover:bg-white/10'
 ]
 
 const mobileLinkClass = (active: boolean) => [
   'rounded-full px-5 py-3 text-base font-medium transition-[opacity,color,background-color] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]',
   active
-    ? 'text-gray-900 bg-white shadow-sm shadow-muted-purple/10 ring-1 ring-muted-purple/[0.03]'
-    : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
+    ? 'text-black bg-white shadow-sm shadow-muted-purple/10 ring-1 ring-muted-purple/[0.03]'
+    : 'text-gray-400 hover:text-white hover:bg-white/10'
 ]
 
 const socialLinks = [
@@ -64,7 +64,7 @@ const socialLinks = [
 <template>
   <header class="py-3 pl-3 pr-2 md:py-4 md:px-4" data-astro-transition-persist="site-header">
     <nav class="flex items-center justify-between max-w-[1400px] mx-auto px-1 md:px-4">
-      <a :href="logoHref" class="text-gray-800 hover:text-gray-900 transition-colors shrink-0">
+      <a :href="logoHref" class="text-gray-200 hover:text-white transition-colors shrink-0">
         <span class="sr-only">{{ logoAlt }}</span>
         <img v-if="logoSrc" :src="logoSrc" :alt="logoAlt" width="48" height="48"
           class="h-12 w-12 rounded-full object-cover border-2 border-white shadow-sm">
@@ -73,7 +73,7 @@ const socialLinks = [
 
       <div class="relative md:static">
         <div data-nav
-          class="relative flex items-center md:absolute md:left-1/2 md:-translate-x-1/2 bg-white/50 backdrop-blur-xl rounded-full px-1 py-1 border border-white/40 shadow-md shadow-black/2 ring-1 ring-black/[0.02]">
+          class="relative flex items-center md:absolute md:left-1/2 md:-translate-x-1/2 bg-black/40 backdrop-blur-xl rounded-full px-1 py-1 border border-white/10 shadow-md shadow-black/2 ring-1 ring-white/3">
           <a v-for="item in navItems" :key="item.href" :href="item.href"
             :aria-label="item.label === 'Home' ? 'Home' : undefined"
             :aria-current="isActive(item.href) ? 'page' : undefined" :class="desktopLinkClass(isActive(item.href))">
@@ -82,14 +82,14 @@ const socialLinks = [
           </a>
 
           <button type="button" :aria-expanded="sheetOpen" aria-controls="nav-sheet" aria-label="More navigation"
-            class="md:hidden relative z-10 rounded-full p-3 text-gray-600 hover:text-gray-900 flex items-center active:scale-95 transition-[color,transform] duration-150"
+            class="md:hidden relative z-10 rounded-full p-3 text-gray-400 hover:text-white flex items-center active:scale-95 transition-[color,transform] duration-150"
             @click="sheetOpen = !sheetOpen">
             <IconChevronDown :class="sheetOpen ? 'rotate-180' : ''" />
           </button>
         </div>
 
         <div id="nav-sheet" :data-state="sheetOpen ? 'open' : 'closed'" :aria-hidden="!sheetOpen"
-          class="group md:hidden absolute right-0 top-full mt-2 w-48 flex flex-col bg-white/70 backdrop-blur-xl rounded-3xl p-1 border border-white/40 shadow-md shadow-black/5 ring-1 ring-black/[0.02] z-[100] origin-top-right transition-[opacity,transform] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
+          class="group md:hidden absolute right-0 top-full mt-2 w-48 flex flex-col bg-black/70 backdrop-blur-xl rounded-3xl p-1 border border-white/10 shadow-md shadow-black/5 ring-1 ring-white/3 z-[100] origin-top-right transition-[opacity,transform] duration-[220ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
           :class="sheetOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-75 pointer-events-none'">
           <a v-for="item in navItems" :key="item.href" :href="item.href"
             :aria-current="isActive(item.href) ? 'page' : undefined" :class="mobileLinkClass(isActive(item.href))">

@@ -19,16 +19,16 @@ defineEmits<{
 </script>
 
 <template>
-  <aside class="bg-white border border-sand-100 rounded-xl shadow-sm overflow-hidden">
+  <aside class="bg-black border border-gloss-gray-800 rounded-xl shadow-sm overflow-hidden">
     <div class="p-5">
       <h2 class="text-sm font-semibold text-gh-text mb-3">Search</h2>
       <SearchInput :model-value="search" @update:model-value="$emit('update:search', $event)" />
     </div>
-    <div class="p-5 border-t border-gray-200">
+    <div class="p-5 border-t border-gloss-gray-800">
       <h2 class="text-sm font-semibold text-gh-text mb-3">Categories</h2>
       <CategoryFilter :categories="categories" :model-value="category" @update:model-value="$emit('update:category', $event)" />
     </div>
-    <div class="p-5 border-t border-gray-200">
+    <div class="p-5 border-t border-gloss-gray-800">
       <h2 class="text-sm font-semibold text-gh-text mb-3">Tags</h2>
       <TagFilter :tags="allTags" :model-value="tags" @update:model-value="$emit('update:tags', $event)" />
     </div>

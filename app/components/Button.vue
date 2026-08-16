@@ -2,9 +2,12 @@
 /**
  * Button variants derived from real button-like patterns already present
  * in the mirror: `secondary` matches the footer RSS pill exactly,
- * `ghost` matches the header nav-toggle button, and `primary` reuses the
- * gn-ink brand token as a solid fill (that token exists in the source
- * palette, just not previously used as a button background).
+ * `ghost` matches the header nav-toggle button, and `primary` originally
+ * reused the gn-ink brand token as a solid dark fill. For the dark theme
+ * flip, primary is inverted to a solid white pill with black text — the
+ * same "solid emphasis" role gn-ink played against a white page, now
+ * played by --color-white against the black one — composed from existing
+ * tokens only, per tokens.css's dark-theme override note.
  */
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
@@ -28,9 +31,9 @@ const sizeClasses: Record<ButtonSize, string> = {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  primary: 'bg-gn-ink text-white shadow-sm hover:bg-black',
-  secondary: 'border border-sand-100 bg-bg-base text-gloss-gray-500 shadow-sm shadow-black/5 hover:border-white/80 hover:bg-white/60 hover:text-gloss-gray-700',
-  ghost: 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
+  primary: 'bg-white text-black shadow-sm hover:bg-gray-200',
+  secondary: 'border border-gloss-gray-800 bg-bg-base text-gloss-gray-400 shadow-sm shadow-black/5 hover:border-white/30 hover:bg-white/10 hover:text-white',
+  ghost: 'text-gray-400 hover:text-white hover:bg-white/10'
 }
 </script>
 
@@ -41,7 +44,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     :type="href ? undefined : 'button'"
     :disabled="!href && disabled"
     :aria-disabled="disabled || undefined"
-    class="inline-flex items-center justify-center rounded-full font-medium no-underline transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gloss-gray-200 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none"
+    class="inline-flex items-center justify-center rounded-full font-medium no-underline transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gloss-gray-200 focus:ring-offset-2 focus:ring-offset-black disabled:opacity-50 disabled:pointer-events-none"
     :class="[sizeClasses[size], variantClasses[variant]]"
   >
     <slot name="icon-left" />

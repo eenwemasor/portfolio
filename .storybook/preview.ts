@@ -6,9 +6,9 @@ const preview: Preview = {
     backgrounds: {
       default: 'gn-base',
       values: [
-        { name: 'gn-base', value: '#f6f7ee' },
-        { name: 'gn-paper', value: '#fefefd' },
-        { name: 'white', value: '#ffffff' }
+        { name: 'gn-base', value: '#000000' },
+        { name: 'gloss-gray-900', value: '#1b1f24' },
+        { name: 'black', value: '#000000' }
       ]
     },
     controls: {

@@ -22,7 +22,7 @@ if (about.value) {
         <!-- eslint-disable-next-line vue/no-v-html -->
         <div v-html="about.html" />
       </ArticleProse>
-      <div class="not-prose flex flex-wrap items-center gap-3 mt-12 pt-8 border-t border-gray-200">
+      <div class="not-prose flex flex-wrap items-center gap-3 mt-12 pt-8 border-t border-gloss-gray-800">
         <Button variant="secondary" href="/posts">Read the posts</Button>
         <Button variant="secondary" href="/projects">See my projects</Button>
         <Button variant="primary" href="/cv">View my CV</Button>

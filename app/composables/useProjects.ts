@@ -50,3 +50,18 @@ export function getAllProjects(): Project[] {
 export function getProjectBySlug(slug: string): Project | undefined {
   return getAllProjects().find((project) => project.slug === slug)
 }
+
+export interface StageCount {
+  label: string
+  count: number
+}
+
+export function getStageOptions(): StageCount[] {
+  const counts = new Map<string, number>()
+  for (const project of getAllProjects()) {
+    counts.set(project.stage, (counts.get(project.stage) ?? 0) + 1)
+  }
+  return Array.from(counts.entries())
+    .map(([label, count]) => ({ label, count }))
+    .sort((a, b) => a.label.localeCompare(b.label))
+}

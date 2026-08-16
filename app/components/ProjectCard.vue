@@ -24,7 +24,7 @@ withDefaults(defineProps<{
 
 <template>
   <a :href="href" class="block no-underline text-inherit">
-    <div class="bg-white rounded-xl overflow-hidden border border-sand-100 shadow-sm transition-all duration-200 ease-out hover:shadow-md hover:-translate-y-1">
+    <div class="bg-black rounded-xl overflow-hidden border border-gloss-gray-800 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-gloss-gray-600">
       <div class="relative flex flex-col gap-4 px-5 pt-4 pb-5 min-h-[280px]">
         <img
           v-if="image"
@@ -38,13 +38,13 @@ withDefaults(defineProps<{
         >
 
         <div class="relative z-10 flex items-center gap-4 font-mono text-xs">
-          <time :datetime="date" class="text-gray-500">{{ dateLabel }}</time>
+          <time :datetime="date" class="text-gray-400">{{ dateLabel }}</time>
           <ProjectStageBadge :stage="stage" variant="card" />
         </div>
 
         <div class="relative z-10 mt-auto flex flex-col gap-3">
-          <h2 class="m-0 text-2xl font-semibold text-gray-900 leading-tight">{{ title }}</h2>
-          <p class="m-0 text-sm text-black/70 leading-snug overflow-hidden line-clamp-4">{{ summary }}</p>
+          <h2 class="m-0 text-2xl font-semibold text-white leading-tight">{{ title }}</h2>
+          <p class="m-0 text-sm text-white/60 leading-snug overflow-hidden line-clamp-4">{{ summary }}</p>
           <AvatarStack :authors="authors" />
         </div>
       </div>

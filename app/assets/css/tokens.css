@@ -3,6 +3,16 @@
   github-next-post/githubnext.com/_astro/Header.DrXMuXCl.css
   No new colors, fonts, or scales were introduced — only the exact
   custom properties already declared by that stylesheet.
+
+  DARK THEME OVERRIDE: the mirror itself has no dark mode (verified — zero
+  `prefers-color-scheme` or `.dark` rules in the source CSS), so there is no
+  real precedent to extract for one. Per the "compose only from tokens
+  already in this file" fallback rule, the four semantic "base ink" tokens
+  below (--color-gn-base, --color-gh-text, --color-gh-text-light,
+  --color-bg-base) have been repointed from their original light values to
+  --color-black and to steps already on the existing --color-gloss-gray-*
+  scale — no new colors were introduced, only existing ones reassigned to
+  the opposite semantic role. Original light values are noted inline.
 */
 
 @theme {
@@ -44,7 +54,7 @@
   --text-xxs: 0.65rem;
 
   /* Brand colors ("gn" = GitHub Next) */
-  --color-gn-base: white;
+  --color-gn-base: var(--color-black); /* was: white — page background */
   --color-gn-paper: #fefefd;
   --color-gn-ink: #303026;
   --color-gn-border: #e4e6d6;
@@ -80,8 +90,8 @@
   --color-gn-slate-text: oklch(from var(--color-gn-slate) 0.4 c h);
 
   /* GitHub brand tones */
-  --color-gh-text: #24292e;
-  --color-gh-text-light: #586069;
+  --color-gh-text: #eaeef2; /* was: #24292e — reuses --color-gloss-gray-100 for primary text on black */
+  --color-gh-text-light: #949da7; /* was: #586069 — reuses --color-gloss-gray-300 for secondary text on black */
   --color-gh-bg: #e1e4e8;
   --color-gh-bg-dark: #d0d2d6;
   --color-gh-dark: #444d56;
@@ -117,7 +127,7 @@
   --color-sand-300: #c1c0b8;
 
   /* Misc named colors used directly in markup */
-  --color-bg-base: #f9f9f8;
+  --color-bg-base: var(--color-black); /* was: #f9f9f8 — secondary/chip surfaces, kept solid black */
   --color-post-link: #86a331;
   --color-success: #0070f3;
   --color-copilot-dark: #000b15;
@@ -126,7 +136,7 @@
   --color-accent-1: #fafafa;
   --color-accent-2: #eaeaea;
   --color-accent-7: #333;
-  --color-black: #000;
+  --color-black: #0f0f0f; /* dark-theme override, was: #000 — requested softer black for the flipped page/card background */
   --color-white: #fff;
 
   /* Radius */

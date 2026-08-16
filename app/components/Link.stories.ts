@@ -12,7 +12,7 @@ const meta: Meta<typeof Link> = {
   parameters: {
     docs: {
       description: {
-        component: 'Text-link variants sourced from patterns already in the mirror: `default` matches the prose/excerpt link rule (`text-lavender-600`, underline on hover), `muted` matches the post-detail back/author links (`text-gray-600` → `text-gray-900`), and `primer` surfaces the extracted `--color-gh-primer-link` token.'
+        component: 'Text-link variants sourced from patterns already in the mirror: `default` matches the prose/excerpt link rule (`text-lavender-600`, underline on hover), `muted` matches the post-detail back/author links (`text-gray-400` → `text-white`), and `primer` surfaces the extracted `--color-gh-primer-link` token.'
       }
     }
   }

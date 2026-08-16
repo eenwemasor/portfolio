@@ -6,6 +6,7 @@ body {
   background-color: var(--color-gn-base);
   color: var(--color-gh-text);
   font-family: var(--font-sans);
+  color-scheme: dark;
 }
 
 /*

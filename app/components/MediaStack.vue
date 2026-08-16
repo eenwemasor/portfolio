@@ -21,7 +21,7 @@ function go(index: number) {
 
 <template>
   <div data-media-stack class="relative">
-    <div class="relative aspect-[16/10] rounded-md overflow-hidden bg-sand-100 border border-sand-200 shadow-sm">
+    <div class="relative aspect-[16/10] rounded-md overflow-hidden bg-gloss-gray-900 border border-gloss-gray-700 shadow-sm">
       <div
         v-for="(item, index) in items"
         :key="item.src"
@@ -38,7 +38,7 @@ function go(index: number) {
           type="button"
           data-media-prev
           aria-label="Previous"
-          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-7 h-7 rounded-full bg-white/80 text-gh-text shadow-sm hover:bg-white transition-colors"
+          class="absolute left-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-7 h-7 rounded-full bg-black/60 text-gh-text shadow-sm hover:bg-black/90 transition-colors"
           @click="go(active - 1)"
         >
           ‹
@@ -47,7 +47,7 @@ function go(index: number) {
           type="button"
           data-media-next
           aria-label="Next"
-          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-7 h-7 rounded-full bg-white/80 text-gh-text shadow-sm hover:bg-white transition-colors"
+          class="absolute right-2 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-7 h-7 rounded-full bg-black/60 text-gh-text shadow-sm hover:bg-black/90 transition-colors"
           @click="go(active + 1)"
         >
           ›
@@ -60,7 +60,7 @@ function go(index: number) {
             data-media-dot
             :aria-label="`Go to slide ${index + 1}`"
             class="w-1.5 h-1.5 rounded-full transition-colors"
-            :class="index === active ? 'bg-black/70' : 'bg-black/30'"
+            :class="index === active ? 'bg-white/90' : 'bg-white/40'"
             @click="go(index)"
           />
         </div>

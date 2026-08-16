@@ -9,7 +9,7 @@ const meta: Meta<typeof PostsSidebar> = {
   parameters: {
     docs: {
       description: {
-        component: 'Composes SearchInput, CategoryFilter, and TagFilter into a divided card matching PostCard\'s exact container styling (bg-white, border-sand-100, rounded-xl, shadow-sm) with section dividers matching the "Related:" footer border pattern.'
+        component: 'Composes SearchInput, CategoryFilter, and TagFilter into a divided card matching PostCard\'s exact container styling (bg-black, border-gloss-gray-800, rounded-xl, shadow-sm) with section dividers matching the "Related:" footer border pattern.'
       }
     }
   },

@@ -24,7 +24,7 @@ const socialLinks = [
 </script>
 
 <template>
-  <footer class="pt-[64px] px-4 pb-24 text-gray-500 text-center">
+  <footer class="pt-[64px] px-4 pb-24 text-gray-400 text-center">
     <span class="text-xxs uppercase tracking-wide">© {{ year }} {{ name }} · All rights reserved</span>
     <div class="mt-4">
       <div class="flex flex-col items-center gap-8">
@@ -36,9 +36,9 @@ const socialLinks = [
         </div>
         <a
           :href="rssHref"
-          class="inline-flex items-center gap-2 rounded-full border border-sand-100 bg-bg-base px-4 py-2 text-sm font-medium text-gloss-gray-500 shadow-sm shadow-black/5 transition-all duration-200 hover:border-white/80 hover:bg-white/60 hover:text-gloss-gray-700 focus:outline-none focus:ring-2 focus:ring-gloss-gray-200 focus:ring-offset-2 no-underline"
+          class="inline-flex items-center gap-2 rounded-full border border-gloss-gray-800 bg-bg-base px-4 py-2 text-sm font-medium text-gloss-gray-400 shadow-sm shadow-black/5 transition-all duration-200 hover:border-white/30 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-gloss-gray-600 focus:ring-offset-2 focus:ring-offset-black no-underline"
         >
-          <IconRss class="w-4 h-4 fill-current text-gloss-gray-300 transition-colors duration-200" />
+          <IconRss class="w-4 h-4 fill-current text-gloss-gray-400 transition-colors duration-200" />
           <span>Subscribe via RSS</span>
         </a>
       </div>

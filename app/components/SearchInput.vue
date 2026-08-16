@@ -19,21 +19,21 @@ withDefaults(defineProps<{
 
 <template>
   <div class="relative">
-    <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+    <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
       <IconSearch />
     </span>
     <input
       v-model="model"
       type="search"
       :placeholder="placeholder"
-      class="w-full rounded-lg border border-sand-200 bg-white py-2 pl-9 text-sm text-gh-text placeholder:text-gray-400 shadow-sm transition-colors focus:border-lavender-400 focus:outline-none focus:ring-2 focus:ring-lavender-300"
+      class="w-full rounded-lg border border-gloss-gray-700 bg-black py-2 pl-9 text-sm text-gh-text placeholder:text-gray-500 shadow-sm transition-colors focus:border-lavender-400 focus:outline-none focus:ring-2 focus:ring-lavender-300"
       :class="model ? 'pr-9' : 'pr-3'"
     >
     <button
       v-if="model"
       type="button"
       aria-label="Clear search"
-      class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
+      class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
       @click="model = ''"
     >
       <IconClose />

@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { onMounted, useTemplateRef } from 'vue'
+import { computed, onMounted, useTemplateRef } from 'vue'
 import gsap from 'gsap'
 import { getAllPosts } from '../composables/usePosts'
+import { getAllProjects } from '../composables/useProjects'
+import type { IndexEntry } from '../components/EntryIndexList.vue'
 import IconGitHub from '../components/icons/IconGitHub.vue'
 import IconLinkedIn from '../components/icons/IconLinkedIn.vue'
 import IconX from '../components/icons/IconX.vue'
@@ -9,6 +11,23 @@ import IconMail from '../components/icons/IconMail.vue'
 import IconGlobe from '../components/icons/IconGlobe.vue'
 
 const { data: posts } = await useAsyncData('posts', () => Promise.resolve(getAllPosts()))
+const { data: projects } = await useAsyncData('home-projects', () => Promise.resolve(getAllProjects()))
+
+const HOME_TEASER_LIMIT = 6
+
+const postEntries = computed<IndexEntry[]>(() => (posts.value ?? []).slice(0, HOME_TEASER_LIMIT).map((post, i) => ({
+  href: `/posts/${post.slug}`,
+  title: post.title,
+  tags: [post.type.charAt(0).toUpperCase() + post.type.slice(1), post.category],
+  index: String(i + 1).padStart(2, '0')
+})))
+
+const projectEntries = computed<IndexEntry[]>(() => (projects.value ?? []).slice(0, HOME_TEASER_LIMIT).map((project, i) => ({
+  href: `/projects/${project.slug}`,
+  title: project.title,
+  tags: [project.stage],
+  index: String(i + 1).padStart(2, '0')
+})))
 
 useSeoMeta({
   title: 'Enwemasor Barnabas — Full-Stack Engineer, DevOps',
@@ -57,23 +76,8 @@ onMounted(() => {
     </div>
 
     <main class="relative z-10">
-      <PageHero>Posts</PageHero>
-      <PostsGrid>
-        <PostCard
-          v-for="post in posts"
-          :key="post.slug"
-          :href="`/posts/${post.slug}`"
-          :type="post.type"
-          :date="post.date"
-          :date-label="post.dateLabel"
-          :title="post.title"
-          :excerpt="post.excerpt"
-          :authors="[{ name: post.authorName, avatarUrl: post.authorAvatarUrl }]"
-          :hero-image="post.image"
-          :hero-image-alt="post.imageAlt"
-        />
-      </PostsGrid>
-      <InfinitePagination :has-more="false" />
+      <HomeIndexSection heading="Posts" :entries="postEntries" view-all-href="/posts" view-all-label="View all posts" />
+      <HomeIndexSection heading="Projects" :entries="projectEntries" view-all-href="/projects" view-all-label="View all projects" />
       <AppFooter />
     </main>
   </div>

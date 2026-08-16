@@ -29,43 +29,48 @@ useSeoMeta({
 </script>
 
 <template>
-  <div>
-    <AppHeader active-href="/posts" logo-src="/images/enwemasorbarnabas.jpeg" logo-alt="Enwemasor Barnabas" />
-    <PageHero>Posts</PageHero>
-    <main class="max-w-7xl mx-auto px-4 pb-16">
-      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8">
-        <div class="lg:sticky lg:top-8 lg:self-start">
-          <PostsSidebar
-            v-model:search="search"
-            v-model:category="category"
-            v-model:tags="selectedTags"
-            :categories="categories ?? []"
-            :all-tags="allTags ?? []"
-          />
-        </div>
-
-        <div>
-          <p v-if="filteredPosts.length === 0" class="text-sm text-gray-500 font-mono">
-            No posts match your filters.
-          </p>
-          <div v-else class="columns-1 md:columns-2 gap-4">
-            <PostCard
-              v-for="post in filteredPosts"
-              :key="post.slug"
-              :href="`/posts/${post.slug}`"
-              :type="post.type"
-              :date="post.date"
-              :date-label="post.dateLabel"
-              :title="post.title"
-              :excerpt="post.excerpt"
-              :authors="[{ name: post.authorName, avatarUrl: post.authorAvatarUrl }]"
-              :hero-image="post.image"
-              :hero-image-alt="post.imageAlt"
+  <div class="relative overflow-hidden">
+    <GradientBackground variant="strip" />
+    <div class="relative z-20">
+      <AppHeader active-href="/posts" logo-src="/images/enwemasorbarnabas.jpeg" logo-alt="Enwemasor Barnabas" />
+    </div>
+    <div class="relative z-10">
+      <PageHero>Posts</PageHero>
+      <main class="max-w-7xl mx-auto px-4 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-8">
+          <div class="lg:sticky lg:top-8 lg:self-start">
+            <PostsSidebar
+              v-model:search="search"
+              v-model:category="category"
+              v-model:tags="selectedTags"
+              :categories="categories ?? []"
+              :all-tags="allTags ?? []"
             />
           </div>
+
+          <div>
+            <p v-if="filteredPosts.length === 0" class="text-sm text-gray-400 font-mono">
+              No posts match your filters.
+            </p>
+            <div v-else class="columns-1 md:columns-2 gap-4">
+              <PostCard
+                v-for="post in filteredPosts"
+                :key="post.slug"
+                :href="`/posts/${post.slug}`"
+                :type="post.type"
+                :date="post.date"
+                :date-label="post.dateLabel"
+                :title="post.title"
+                :excerpt="post.excerpt"
+                :authors="[{ name: post.authorName, avatarUrl: post.authorAvatarUrl }]"
+                :hero-image="post.image"
+                :hero-image-alt="post.imageAlt"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </main>
-    <AppFooter />
+      </main>
+      <AppFooter />
+    </div>
   </div>
 </template>

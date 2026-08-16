@@ -20,7 +20,7 @@ withDefaults(defineProps<{
 
 const variantClasses: Record<LinkVariant, string> = {
   default: 'text-lavender-600 hover:underline',
-  muted: 'text-gray-600 hover:underline hover:text-gray-900 decoration-gray-900/25 transition-all duration-150',
+  muted: 'text-gray-400 hover:underline hover:text-white decoration-white/25 transition-all duration-150',
   primer: 'text-gh-primer-link hover:underline'
 }
 </script>

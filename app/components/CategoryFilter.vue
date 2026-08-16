@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
  * Single-select category list. Active/inactive states reuse the exact
- * classes from AppHeader's mobile nav-sheet links (text-gray-900 bg-white
- * shadow-sm ring-1 ring-muted-purple/[0.03] vs text-gray-600 hover:...) —
+ * classes from AppHeader's mobile nav-sheet links (text-black bg-white
+ * shadow-sm ring-1 ring-muted-purple/[0.03] vs text-gray-400 hover:...) —
  * the site's own established pattern for an active item in a vertical list.
  */
 export interface CategoryOption {
@@ -20,8 +20,8 @@ defineEmits<{ (e: 'update:modelValue', value: string | null): void }>()
 const itemClass = (active: boolean) => [
   'w-full flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors',
   active
-    ? 'text-gray-900 bg-white shadow-sm shadow-muted-purple/10 ring-1 ring-muted-purple/[0.03]'
-    : 'text-gray-600 hover:text-gray-900 hover:bg-white/60'
+    ? 'text-black bg-white shadow-sm shadow-muted-purple/10 ring-1 ring-muted-purple/[0.03]'
+    : 'text-gray-400 hover:text-white hover:bg-white/10'
 ]
 </script>
 
@@ -35,7 +35,7 @@ const itemClass = (active: boolean) => [
     <li v-for="category in categories" :key="category.label">
       <button type="button" :class="itemClass(modelValue === category.label)" @click="$emit('update:modelValue', category.label)">
         <span>{{ category.label }}</span>
-        <span class="font-mono text-xs text-gray-400">{{ category.count }}</span>
+        <span class="font-mono text-xs text-gray-500">{{ category.count }}</span>
       </button>
     </li>
   </ul>
