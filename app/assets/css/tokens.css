@@ -1,0 +1,228 @@
+/*
+  Design tokens extracted verbatim from the GitHub Next `/posts/` mirror:
+  github-next-post/githubnext.com/_astro/Header.DrXMuXCl.css
+  No new colors, fonts, or scales were introduced — only the exact
+  custom properties already declared by that stylesheet.
+*/
+
+@theme {
+  /* Fonts */
+  --font-sans:
+    "Mona Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "Monaspace Argon", monospace;
+  --font-mono-argon: "Monaspace Argon", monospace;
+  --font-mono-neon: "Monaspace Neon", monospace;
+  --font-mono-xenon: "Monaspace Xenon", monospace;
+  --font-mono-radon: "Monaspace Radon", monospace;
+  --font-mono-krypton: "Monaspace Krypton", monospace;
+  --font-display: var(--font-sans);
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Custom display/functional type scale */
+  --text-gh0: 72px;
+  --text-gh1: 64px;
+  --text-gh2: 56px;
+  --text-gh3: 32px;
+  --text-gh4: 24px;
+  --text-gh5: 20px;
+  --text-gh6: 16px;
+  --text-gf1: 32px;
+  --text-gf2: 24px;
+  --text-gf3: 20px;
+  --text-gf4: 16px;
+  --text-gf5: 14px;
+  --text-gf6: 12px;
+  --text-xxs: 0.65rem;
+
+  /* Brand colors ("gn" = GitHub Next) */
+  --color-gn-base: white;
+  --color-gn-paper: #fefefd;
+  --color-gn-ink: #303026;
+  --color-gn-border: #e4e6d6;
+  --color-gn-grey: #75766d;
+  --color-gn-icon: #c9cabc;
+
+  --color-gn-banana: #fdc987;
+  --color-gn-banana-light: #f8e9cf;
+  --color-gn-banana-text: oklch(from var(--color-gn-banana) 0.55 c h);
+
+  --color-gn-copper: #ce6d53;
+  --color-gn-copper-light: #edd9cc;
+  --color-gn-copper-text: oklch(from var(--color-gn-copper) 0.4 c h);
+
+  --color-gn-copper-warm: #d78a67;
+  --color-gn-copper-warm-light: #efdfd0;
+  --color-gn-copper-warm-text: oklch(from var(--color-gn-copper-warm) 0.4 c h);
+
+  --color-gn-mint: #dedfbd;
+  --color-gn-mint-light: #eaebd6;
+  --color-gn-mint-text: oklch(from var(--color-gn-mint) 0.4 c h);
+
+  --color-gn-sea: #60a0b3;
+  --color-gn-sea-light: #d5e4e1;
+  --color-gn-sea-text: oklch(from var(--color-gn-sea) 0.4 c h);
+
+  --color-gn-sky: #c4d7d9;
+  --color-gn-sky-light: #e1eae5;
+  --color-gn-sky-text: oklch(from var(--color-gn-sky) 0.4 c h);
+
+  --color-gn-slate: #b4bdcb;
+  --color-gn-slate-light: #e1e4e3;
+  --color-gn-slate-text: oklch(from var(--color-gn-slate) 0.4 c h);
+
+  /* GitHub brand tones */
+  --color-gh-text: #24292e;
+  --color-gh-text-light: #586069;
+  --color-gh-bg: #e1e4e8;
+  --color-gh-bg-dark: #d0d2d6;
+  --color-gh-dark: #444d56;
+  --color-gh-primer-link: #0969da;
+  --color-gh-marketing-dark: #050d21;
+
+  /* Gloss-gray scale (used on footer RSS pill etc.) */
+  --color-gloss-gray-0: #fafbfc;
+  --color-gloss-gray-100: #eaeef2;
+  --color-gloss-gray-150: #d4dae0;
+  --color-gloss-gray-200: #b7bfc7;
+  --color-gloss-gray-300: #949da7;
+  --color-gloss-gray-400: #707a84;
+  --color-gloss-gray-500: #57606a;
+  --color-gloss-gray-600: #424a53;
+  --color-gloss-gray-700: #32383f;
+  --color-gloss-gray-800: #24292f;
+  --color-gloss-gray-900: #1b1f24;
+
+  /* Lavender scale (content-type badge / link accents) */
+  --color-lavender-100: #eef;
+  --color-lavender-200: #d8dbfa;
+  --color-lavender-300: #b8bef5;
+  --color-lavender-400: #9ba3f3;
+  --color-lavender-500: #7881e5;
+  --color-lavender-600: #6b73d1;
+  --color-lavender-700: #5158a8;
+  --color-lavender-800: #3b4080;
+
+  /* Sand scale (card borders) */
+  --color-sand-100: #eeeeec;
+  --color-sand-200: #deded9;
+  --color-sand-300: #c1c0b8;
+
+  /* Misc named colors used directly in markup */
+  --color-bg-base: #f9f9f8;
+  --color-post-link: #86a331;
+  --color-success: #0070f3;
+  --color-copilot-dark: #000b15;
+  --color-copilot-dot: #45aeb1aa;
+  --color-gradient-accent: #f9a8d4;
+  --color-accent-1: #fafafa;
+  --color-accent-2: #eaeaea;
+  --color-accent-7: #333;
+  --color-black: #000;
+  --color-white: #fff;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-64: 64px;
+
+  /* Shadows (warm-neutral tinted #d1d1c5, matching the paper background) */
+  --shadow-sm: 0 1px 2px #d1d1c526, 0 2px 4px #d1d1c51a;
+  --shadow-DEFAULT:
+    0 1px 3px #d1d1c533, 0 2px 6px #d1d1c526, 0 4px 12px #d1d1c51a;
+  --shadow-md:
+    0 2px 4px #d1d1c533, 0 4px 8px #d1d1c526, 0 8px 16px #d1d1c51f,
+    0 16px 32px #d1d1c514;
+  --shadow-lg:
+    0 4px 8px #d1d1c538, 0 8px 16px #d1d1c529, 0 16px 32px #d1d1c51f,
+    0 24px 48px #d1d1c514;
+  --shadow-xl:
+    0 4px 8px #d1d1c533, 0 8px 16px #d1d1c526, 0 16px 32px #d1d1c51f,
+    0 32px 64px #d1d1c514;
+  --shadow-small: 0 1px 2px #d1d1c533, 0 2px 4px #d1d1c526, 0 4px 8px #d1d1c51a;
+  --shadow-medium:
+    0 2px 4px #d1d1c533, 0 4px 8px #d1d1c526, 0 8px 16px #d1d1c51f,
+    0 16px 32px #d1d1c514;
+  --shadow-large:
+    0 4px 8px #d1d1c533, 0 8px 16px #d1d1c526, 0 16px 32px #d1d1c51f,
+    0 32px 64px #d1d1c514;
+}
+
+/* Variable fonts, copied from the mirror (githubnext.com/fonts/) */
+@font-face {
+  font-family: "Mona Sans";
+  src:
+    url("/fonts/MonaSansVF.woff2") format("woff2-variations"),
+    url("/fonts/MonaSansVF.woff2") format("woff2");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monaspace Argon";
+  src:
+    url("/fonts/Monaspace-Argon.woff2") format("woff2-variations"),
+    url("/fonts/Monaspace-Argon.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 100% 125%;
+  font-style: oblique -11deg 0deg;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monaspace Neon";
+  src:
+    url("/fonts/Monaspace-Neon.woff2") format("woff2-variations"),
+    url("/fonts/Monaspace-Neon.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 100% 125%;
+  font-style: oblique -11deg 0deg;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monaspace Xenon";
+  src:
+    url("/fonts/Monaspace-Xenon.woff2") format("woff2-variations"),
+    url("/fonts/Monaspace-Xenon.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 100% 125%;
+  font-style: oblique -11deg 0deg;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monaspace Radon";
+  src:
+    url("/fonts/Monaspace-Radon.woff2") format("woff2-variations"),
+    url("/fonts/Monaspace-Radon.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 100% 125%;
+  font-style: oblique -11deg 0deg;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Monaspace Krypton";
+  src:
+    url("/fonts/Monaspace-Krypton.woff2") format("woff2-variations"),
+    url("/fonts/Monaspace-Krypton.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 100% 125%;
+  font-style: oblique -11deg 0deg;
+  font-display: swap;
+}

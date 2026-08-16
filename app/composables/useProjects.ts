@@ -1,0 +1,39 @@
+import { markdown, parseFrontmatter } from '../utils/markdown'
+
+export interface ProjectFrontmatter {
+  title: string
+  summary: string
+  dateLabel: string
+  techStack: string[]
+}
+
+export interface Project extends ProjectFrontmatter {
+  slug: string
+  html: string
+}
+
+const rawModules = import.meta.glob('../../content/projects/*.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true
+}) as Record<string, string>
+
+function slugFromPath(path: string): string {
+  return path.match(/([^/]+)\.md$/)?.[1] ?? path
+}
+
+let cachedProjects: Project[] | null = null
+
+export function getAllProjects(): Project[] {
+  if (cachedProjects) return cachedProjects
+  const projects = Object.entries(rawModules).map(([path, raw]) => {
+    const { data, content } = parseFrontmatter(raw)
+    return {
+      slug: slugFromPath(path),
+      ...(data as unknown as ProjectFrontmatter),
+      html: markdown.render(content)
+    }
+  })
+  cachedProjects = projects
+  return projects
+}

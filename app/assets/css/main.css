@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@import "./tokens.css";
+
+body {
+  background-color: var(--color-gn-base);
+  color: var(--color-gh-text);
+  font-family: var(--font-sans);
+}
