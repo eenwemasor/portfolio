@@ -1,29 +1,53 @@
 <script setup lang="ts">
 /**
- * Project card. Reuses PostCard's exact container styling (bg-white,
- * border-sand-100, rounded-xl, shadow-sm, hover lift) and TagPill for the
- * tech-stack chips, in place of PostCard's type-badge/avatar-stack pattern
- * which doesn't apply to a project.
+ * Exact match of the project card on githubnext.com/projects/: whole card
+ * is one <a>, full-bleed absolutely-positioned background thumbnail (no
+ * scrim), top row = date + stage badge, bottom-pinned (mt-auto) block =
+ * title + line-clamp-4 description + overlapping avatar stack.
  */
-import TagPill from './TagPill.vue'
+import ProjectStageBadge, { type ProjectStage } from './ProjectStageBadge.vue'
+import AvatarStack, { type AvatarStackAuthor } from './AvatarStack.vue'
 
-defineProps<{
+withDefaults(defineProps<{
+  href: string
   title: string
   summary: string
+  date: string
   dateLabel: string
-  techStack: string[]
-}>()
+  stage: ProjectStage
+  image?: string
+  authors: AvatarStackAuthor[]
+}>(), {
+  image: undefined
+})
 </script>
 
 <template>
-  <article class="bg-white px-7 py-6 rounded-xl transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 border border-sand-100 shadow-sm">
-    <div class="flex items-center justify-between gap-3 mb-3">
-      <h2 class="m-0 text-xl font-medium text-black/80 leading-tight">{{ title }}</h2>
-      <time class="font-mono text-xs text-black/50 whitespace-nowrap shrink-0">{{ dateLabel }}</time>
+  <a :href="href" class="block no-underline text-inherit">
+    <div class="bg-white rounded-xl overflow-hidden border border-sand-100 shadow-sm transition-all duration-200 ease-out hover:shadow-md hover:-translate-y-1">
+      <div class="relative flex flex-col gap-4 px-5 pt-4 pb-5 min-h-[280px]">
+        <img
+          v-if="image"
+          :src="image"
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width="880"
+          height="560"
+          class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none select-none"
+        >
+
+        <div class="relative z-10 flex items-center gap-4 font-mono text-xs">
+          <time :datetime="date" class="text-gray-500">{{ dateLabel }}</time>
+          <ProjectStageBadge :stage="stage" variant="card" />
+        </div>
+
+        <div class="relative z-10 mt-auto flex flex-col gap-3">
+          <h2 class="m-0 text-2xl font-semibold text-gray-900 leading-tight">{{ title }}</h2>
+          <p class="m-0 text-sm text-black/70 leading-snug overflow-hidden line-clamp-4">{{ summary }}</p>
+          <AvatarStack :authors="authors" />
+        </div>
+      </div>
     </div>
-    <p class="m-0 mb-4 text-sm leading-[1.4] text-black/70">{{ summary }}</p>
-    <div class="flex flex-wrap gap-2">
-      <TagPill v-for="tech in techStack" :key="tech">{{ tech }}</TagPill>
-    </div>
-  </article>
+  </a>
 </template>

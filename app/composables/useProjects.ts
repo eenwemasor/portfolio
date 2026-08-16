@@ -1,10 +1,18 @@
+import type { ProjectStage } from '../components/ProjectStageBadge.vue'
 import { markdown, parseFrontmatter } from '../utils/markdown'
 
 export interface ProjectFrontmatter {
   title: string
   summary: string
+  whatFor: string
+  date: string
   dateLabel: string
-  techStack: string[]
+  stage: ProjectStage
+  gradientColors: string[]
+  image?: string
+  authorName: string
+  authorUrl: string
+  authorAvatarUrl: string
 }
 
 export interface Project extends ProjectFrontmatter {
@@ -34,6 +42,11 @@ export function getAllProjects(): Project[] {
       html: markdown.render(content)
     }
   })
+  projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   cachedProjects = projects
   return projects
+}
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return getAllProjects().find((project) => project.slug === slug)
 }
