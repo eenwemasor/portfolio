@@ -5,7 +5,7 @@ date: "2024-06-25"
 dateLabel: "June 25, 2024"
 type: post
 category: "Laravel"
-image: "https://enwemasorbarnabas.com/wp-content/uploads/2024/06/laravel.png"
+image: "/posts/laravel-session-persistence-caching.png"
 imageAlt: "Laravel: Session Persistence, Caching, File Upload Management and Logging on a Load Balancer"
 authorName: "Enwemasor Barnabas"
 authorUrl: "https://enwemasorbarnabas.com"

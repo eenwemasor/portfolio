@@ -5,7 +5,7 @@ date: "2024-06-25"
 dateLabel: "June 25, 2024"
 type: post
 category: "Versioning"
-image: "https://enwemasorbarnabas.com/wp-content/uploads/2024/06/versioning.png"
+image: "/posts/software-versioning-conventions.png"
 imageAlt: "Software Versioning Conventions"
 authorName: "Enwemasor Barnabas"
 authorUrl: "https://enwemasorbarnabas.com"
