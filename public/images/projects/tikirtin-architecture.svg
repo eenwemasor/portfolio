@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 710" font-family="'SF Mono','Menlo','Consolas',monospace">
+  <defs>
+    <marker id="tk-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1b1f24" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="710" fill="#ffffff" />
+
+  <text x="40" y="28" font-size="11" font-weight="700" fill="#1b1f24">tikirtin.com — core platform (tikirtin-system)</text>
+
+  <!-- app -->
+  <rect x="40" y="42" width="260" height="60" rx="4" fill="#1b1f24" />
+  <text x="170" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">tikirtin-app (React 18 + Redux)</text>
+  <text x="170" y="78" text-anchor="middle" font-size="8.5" fill="#d4dae0">public discovery · checkout · organiser dashboard</text>
+  <text x="170" y="92" text-anchor="middle" font-size="8" fill="#949da7">flutterwave-react-v3 · FullCalendar · Chart.js</text>
+
+  <line x1="300" y1="72" x2="326" y2="72" stroke="#1b1f24" stroke-width="1.5" marker-end="url(#tk-arrow)" />
+  <line x1="326" y1="78" x2="300" y2="78" stroke="#1b1f24" stroke-width="1.5" marker-end="url(#tk-arrow)" />
+
+  <rect x="328" y="42" width="270" height="60" rx="4" fill="#eaeef2" stroke="#1b1f24" stroke-width="1.5" />
+  <text x="463" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#1b1f24">tikirtin-api — Laravel 12</text>
+  <text x="463" y="78" text-anchor="middle" font-size="8.5" fill="#57606a">Sanctum auth · Horizon queues · Filament 5 admin</text>
+  <text x="463" y="92" text-anchor="middle" font-size="8" fill="#949da7">25 tagged releases, v0.9.0 → v0.9.45</text>
+
+  <line x1="463" y1="102" x2="463" y2="124" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#tk-arrow)" />
+  <rect x="373" y="126" width="90" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="418" y="148" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">Postgres</text>
+  <rect x="473" y="126" width="90" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="518" y="148" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">Redis</text>
+
+  <!-- flutterwave -->
+  <line x1="170" y1="102" x2="170" y2="124" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#tk-arrow)" />
+  <rect x="80" y="126" width="180" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="170" y="148" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">Flutterwave checkout</text>
+
+  <!-- payout engine -->
+  <rect x="628" y="30" width="332" height="150" rx="6" fill="none" stroke="#1b1f24" stroke-width="1.25" stroke-dasharray="3 3" />
+  <text x="644" y="48" font-size="9.5" font-weight="700" fill="#1b1f24">payout engine (named "weekly", runs daily)</text>
+  <rect x="644" y="58" width="300" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1" />
+  <text x="794" y="79" text-anchor="middle" font-size="8" fill="#1b1f24">Schedule::call → PayoutCreatorJob — daily</text>
+  <line x1="794" y1="92" x2="794" y2="106" stroke="#1b1f24" stroke-width="1" marker-end="url(#tk-arrow)" />
+  <rect x="644" y="108" width="300" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1" />
+  <text x="794" y="129" text-anchor="middle" font-size="8" fill="#1b1f24">CalculatePayoutJob per event date this week</text>
+  <text x="794" y="158" text-anchor="middle" font-size="7.5" fill="#57606a">→ SettlementService → Payout row (PENDING/PROCESSING/PAID/FAILED)</text>
+  <text x="794" y="170" text-anchor="middle" font-size="7.5" fill="#949da7">manual fallback: artisan payouts:process-weekly --force</text>
+
+  <!-- scraper feed -->
+  <text x="40" y="216" font-size="11" font-weight="700" fill="#1b1f24">demand feed — tikirtin-scpr (independent repo)</text>
+  <rect x="40" y="230" width="290" height="90" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="185" y="250" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b1f24">Django + Celery + Playwright</text>
+  <text x="185" y="266" text-anchor="middle" font-size="8" fill="#57606a">scrapers: eventbrite · nairabox · tix_africa</text>
+  <text x="185" y="282" text-anchor="middle" font-size="8" fill="#57606a">Celery Beat (DB scheduler) runs run_scraper</text>
+  <text x="185" y="298" text-anchor="middle" font-size="8" fill="#57606a">ScraperRun log · Event upserted by fingerprint</text>
+  <text x="185" y="312" text-anchor="middle" font-size="7.5" fill="#949da7">own stack: Postgres 18 :5433 · Redis 7 :6399</text>
+
+  <line x1="330" y1="275" x2="356" y2="275" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#tk-arrow)" />
+  <rect x="358" y="248" width="240" height="54" rx="4" fill="#1b1f24" />
+  <text x="478" y="268" text-anchor="middle" font-size="8.5" font-weight="700" fill="#ffffff">POST /admin/external-events/seed</text>
+  <text x="478" y="282" text-anchor="middle" font-size="8" fill="#d4dae0">public listing + likes + comments</text>
+  <text x="478" y="294" text-anchor="middle" font-size="7.5" fill="#949da7">on tikirtin-api</text>
+
+  <!-- content sites -->
+  <text x="40" y="358" font-size="11" font-weight="700" fill="#1b1f24">content — independently deployed Next.js sites</text>
+  <rect x="40" y="372" width="200" height="52" rx="4" fill="none" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="140" y="392" text-anchor="middle" font-size="9" font-weight="700" fill="#1b1f24">tikirtin-blog</text>
+  <text x="140" y="406" text-anchor="middle" font-size="8" fill="#57606a">Next.js 16 · MDX</text>
+  <text x="140" y="418" text-anchor="middle" font-size="7.5" fill="#949da7">:3222</text>
+
+  <rect x="260" y="372" width="200" height="52" rx="4" fill="none" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="360" y="392" text-anchor="middle" font-size="9" font-weight="700" fill="#1b1f24">tikirtin-help</text>
+  <text x="360" y="406" text-anchor="middle" font-size="8" fill="#57606a">Next.js 16 · MDX</text>
+  <text x="360" y="418" text-anchor="middle" font-size="7.5" fill="#949da7">:3111</text>
+
+  <!-- deploy strip -->
+  <rect x="40" y="446" width="920" height="140" rx="8" fill="none" stroke="#1b1f24" stroke-width="1.5" stroke-dasharray="5 4" />
+  <text x="58" y="470" font-size="11" font-weight="700" fill="#1b1f24">DEPLOYMENT — every repo ships independently to one OVH VPS</text>
+  <text x="58" y="484" font-size="8.5" fill="#57606a">GitHub Actions → build image → GHCR → SCP + SSH → docker stack deploy (Swarm)</text>
+
+  <rect x="70" y="500" width="200" height="66" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1" />
+  <text x="170" y="520" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">tikirtin-api stack</text>
+  <text x="170" y="534" text-anchor="middle" font-size="7.5" fill="#57606a">nginx → php-fpm (healthchecked)</text>
+  <text x="170" y="546" text-anchor="middle" font-size="7.5" fill="#57606a">Postgres 16 · Redis</text>
+  <text x="170" y="558" text-anchor="middle" font-size="7.5" fill="#949da7">deploy.yml + deploy.develop.yml</text>
+
+  <rect x="290" y="500" width="180" height="66" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1" />
+  <text x="380" y="520" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">tikirtin-app</text>
+  <text x="380" y="534" text-anchor="middle" font-size="7.5" fill="#57606a">static SPA build</text>
+  <text x="380" y="546" text-anchor="middle" font-size="7.5" fill="#57606a">served at tikirtin.com</text>
+
+  <rect x="490" y="500" width="180" height="66" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1" />
+  <text x="580" y="520" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">tikirtin-scpr</text>
+  <text x="580" y="534" text-anchor="middle" font-size="7.5" fill="#57606a">own Postgres + Redis</text>
+  <text x="580" y="546" text-anchor="middle" font-size="7.5" fill="#57606a">Celery worker + beat</text>
+
+  <rect x="690" y="500" width="240" height="66" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1" />
+  <text x="810" y="520" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">tikirtin-blog · tikirtin-help</text>
+  <text x="810" y="534" text-anchor="middle" font-size="7.5" fill="#57606a">independent stacks, own routers</text>
+
+  <text x="500" y="620" text-anchor="middle" font-size="9" fill="#57606a">Traefik reverse proxy · Let's Encrypt TLS · Prometheus/Grafana + Loki/Promtail observability</text>
+  <text x="500" y="638" text-anchor="middle" font-size="9" fill="#57606a">Portainer webhook-driven redeploys · single-manager Docker Swarm, restart_policy: condition: any</text>
+
+  <text x="500" y="680" text-anchor="middle" font-size="9.5" fill="#949da7">5 repos · 1 event-ticketing product · sole-built and operated for two years</text>
+</svg>

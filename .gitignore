@@ -38,7 +38,7 @@ logs
 !.env.example
 
 # Reference-only source mirrors (not part of the shipped site)
-github-next-post
-github-next-project
-mattrothenberg
-projects/
+/github-next-post
+/github-next-project
+/mattrothenberg
+/projects/

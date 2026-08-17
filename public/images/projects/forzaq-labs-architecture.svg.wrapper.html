@@ -1,0 +1,101 @@
+<!doctype html><html><body style="margin:0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 760" font-family="'SF Mono','Menlo','Consolas',monospace">
+  <defs>
+    <marker id="fz-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1b1f24" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="760" fill="#ffffff" />
+
+  <!-- CI/CD strip -->
+  <rect x="40" y="20" width="920" height="46" rx="6" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.5" />
+  <text x="500" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#1b1f24">GitHub Actions  →  build + push image (GHCR)  →  SCP env + docker-stack.yml  →  SSH: docker stack deploy</text>
+  <text x="500" y="56" text-anchor="middle" font-size="10" fill="#57606a">per repo, on push to main · appleboy/ssh-action + scp-action</text>
+  <line x1="500" y1="66" x2="500" y2="98" stroke="#1b1f24" stroke-width="1.5" marker-end="url(#fz-arrow)" />
+
+  <!-- Traefik -->
+  <rect x="370" y="100" width="260" height="52" rx="6" fill="#1b1f24" />
+  <text x="500" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Traefik v3.6.6</text>
+  <text x="500" y="138" text-anchor="middle" font-size="10" fill="#d4dae0">reverse proxy · TLS (Let's Encrypt HTTP-01)</text>
+  <line x1="440" y1="152" x2="270" y2="212" stroke="#1b1f24" stroke-width="1.5" marker-end="url(#fz-arrow)" />
+  <line x1="560" y1="152" x2="730" y2="212" stroke="#1b1f24" stroke-width="1.5" marker-end="url(#fz-arrow)" />
+
+  <!-- Outer VPS box -->
+  <rect x="40" y="180" width="920" height="500" rx="8" fill="none" stroke="#1b1f24" stroke-width="1.5" stroke-dasharray="5 4" />
+  <text x="58" y="204" font-size="11" font-weight="700" fill="#1b1f24">OVH CLOUD VPS — single-manager Docker Swarm</text>
+  <text x="58" y="218" font-size="9.5" fill="#57606a">provisioned by Ansible: common → security → docker → swarm_init → swarm_stacks</text>
+
+  <!-- Web stack -->
+  <rect x="80" y="232" width="380" height="120" rx="6" fill="none" stroke="#1b1f24" stroke-width="1.5" />
+  <text x="96" y="250" font-size="10.5" font-weight="700" fill="#1b1f24">stack: forzaq-labs-web</text>
+  <rect x="96" y="260" width="200" height="42" rx="4" fill="#eaeef2" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="196" y="277" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1b1f24">Nuxt 4.4.8 :3000</text>
+  <text x="196" y="291" text-anchor="middle" font-size="9" fill="#57606a">forzaqlabs.com / www</text>
+  <rect x="320" y="260" width="120" height="42" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" stroke-dasharray="3 3" />
+  <text x="380" y="277" text-anchor="middle" font-size="9" font-weight="700" fill="#1b1f24">@forzaq-labs/ui</text>
+  <text x="380" y="290" text-anchor="middle" font-size="8" fill="#57606a">GitHub pkg</text>
+  <line x1="320" y1="281" x2="296" y2="281" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+  <text x="380" y="315" text-anchor="middle" font-size="8.5" fill="#57606a">installed at build time via UI_LIBRARY_PAT secret</text>
+  <text x="196" y="340" text-anchor="middle" font-size="8.5" fill="#57606a">@nuxt/content · TanStack Query · nuxt-gtag</text>
+
+  <!-- API stack -->
+  <rect x="540" y="232" width="380" height="420" rx="6" fill="none" stroke="#1b1f24" stroke-width="1.5" />
+  <text x="556" y="250" font-size="10.5" font-weight="700" fill="#1b1f24">stack: forzaq-labs-api</text>
+
+  <rect x="580" y="260" width="300" height="34" rx="4" fill="#eaeef2" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="730" y="281" text-anchor="middle" font-size="10" font-weight="700" fill="#1b1f24">nginx :443 → api.forzaqlabs.com</text>
+  <line x1="730" y1="294" x2="730" y2="316" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+
+  <rect x="580" y="318" width="300" height="40" rx="4" fill="#1b1f24" />
+  <text x="730" y="336" text-anchor="middle" font-size="10.5" font-weight="700" fill="#ffffff">forzaqlabs-backend (PHP-FPM)</text>
+  <text x="730" y="350" text-anchor="middle" font-size="9" fill="#d4dae0">Laravel 13.8 + Filament 3 admin</text>
+
+  <rect x="890" y="318" width="0" height="0" />
+  <rect x="900" y="316" width="0" height="0" />
+
+  <!-- admin callout -->
+  <rect x="900" y="255" width="0" height="0" />
+
+  <line x1="680" y1="358" x2="620" y2="384" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+  <line x1="780" y1="358" x2="840" y2="384" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+
+  <rect x="580" y="386" width="160" height="42" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="660" y="403" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b1f24">Horizon ×2</text>
+  <text x="660" y="416" text-anchor="middle" font-size="8.5" fill="#57606a">queue workers</text>
+
+  <rect x="760" y="386" width="120" height="42" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="820" y="403" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b1f24">Scheduler</text>
+  <text x="820" y="416" text-anchor="middle" font-size="8.5" fill="#57606a">schedule:work</text>
+
+  <line x1="660" y1="428" x2="660" y2="450" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+  <line x1="820" y1="428" x2="820" y2="450" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+
+  <rect x="580" y="452" width="160" height="42" rx="4" fill="#eaeef2" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="660" y="469" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b1f24">Postgres 18</text>
+  <text x="660" y="482" text-anchor="middle" font-size="8.5" fill="#57606a">pinned to manager</text>
+
+  <rect x="760" y="452" width="120" height="42" rx="4" fill="#eaeef2" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="820" y="469" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b1f24">Redis</text>
+  <text x="820" y="482" text-anchor="middle" font-size="8.5" fill="#57606a">cache · queues</text>
+
+  <line x1="660" y1="494" x2="660" y2="516" stroke="#1b1f24" stroke-width="1.25" marker-end="url(#fz-arrow)" />
+  <rect x="580" y="518" width="160" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" />
+  <text x="660" y="539" text-anchor="middle" font-size="9" font-weight="700" fill="#1b1f24">backup sidecar</text>
+
+  <rect x="760" y="518" width="120" height="34" rx="4" fill="#fafbfc" stroke="#1b1f24" stroke-width="1.25" stroke-dasharray="3 3" />
+  <text x="820" y="533" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1b1f24">/admin</text>
+  <text x="820" y="544" text-anchor="middle" font-size="7.5" fill="#57606a">IP-allowlist, prio 100</text>
+  <line x1="820" y1="518" x2="800" y2="358" stroke="#1b1f24" stroke-width="1" stroke-dasharray="2 3" />
+
+  <text x="730" y="580" text-anchor="middle" font-size="8.5" fill="#57606a">backup image: forzaqlabs/tikirtin-postgres-backup (global mode)</text>
+
+  <!-- Observability strip -->
+  <rect x="80" y="608" width="840" height="60" rx="6" fill="none" stroke="#1b1f24" stroke-width="1.25" stroke-dasharray="3 3" />
+  <text x="500" y="624" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1b1f24">host-level observability, Ansible-provisioned once for every product on this VPS</text>
+  <text x="200" y="650" text-anchor="middle" font-size="9" fill="#57606a">Portainer 2.27.3</text>
+  <text x="380" y="650" text-anchor="middle" font-size="9" fill="#57606a">Prometheus v3.4.2 + Grafana 11.6.16</text>
+  <text x="620" y="650" text-anchor="middle" font-size="9" fill="#57606a">Loki 3.5.2 + Promtail</text>
+  <text x="820" y="650" text-anchor="middle" font-size="9" fill="#57606a">node-exporter + cAdvisor</text>
+
+  <text x="500" y="700" text-anchor="middle" font-size="9.5" fill="#949da7">forzaq-labs-web · forzaq-labs-api · forzaq-labs-ui-library · infrastructure — four repos, one shared VPS</text>
+</svg>
+</body></html>

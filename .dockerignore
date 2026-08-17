@@ -37,15 +37,20 @@ README.md
 CLAUDE.md
 
 # Reference-only source mirrors + raw content exports (not shipped)
-github-next-post/
-github-next-project/
-mattrothenberg/
-projects/
+# Leading slash anchors each pattern to the repo root — without it, a
+# bare "projects/" also matches content/projects/ (any nested directory
+# with that name), which silently stripped all project markdown out of
+# the Docker build context and 404'd every /projects/:slug page in prod
+# while working fine locally (plain `pnpm build` never applies .dockerignore).
+/github-next-post/
+/github-next-project/
+/mattrothenberg/
+/projects/
 content/content-1.md
 content/content-2.md
 content/content-3.md
 content/content-4.md
 
 # Deploy config (not needed inside the image)
-deployments/
-.github/
+/deployments/
+/.github/
