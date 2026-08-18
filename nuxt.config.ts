@@ -5,6 +5,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
 
+  modules: ['nuxt-gtag'],
+
+  gtag: {
+    id: 'G-8XTC70LWEG'
+  },
+
   css: ['~/assets/css/main.css'],
 
   vite: {
